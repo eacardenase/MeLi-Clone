@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		20BB185129B68AB300A05F4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB185029B68AB300A05F4B /* AppDelegate.swift */; };
-		20BB185329B68AB300A05F4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB185229B68AB300A05F4B /* SceneDelegate.swift */; };
 		20BB185529B68AB300A05F4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BB185429B68AB300A05F4B /* ViewController.swift */; };
-		20BB185829B68AB300A05F4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BB185629B68AB300A05F4B /* Main.storyboard */; };
 		20BB185A29B68AB400A05F4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20BB185929B68AB400A05F4B /* Assets.xcassets */; };
 		20BB185D29B68AB400A05F4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20BB185B29B68AB400A05F4B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -18,12 +16,11 @@
 /* Begin PBXFileReference section */
 		20BB184D29B68AB300A05F4B /* MeLi-Clone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MeLi-Clone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		20BB185029B68AB300A05F4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		20BB185229B68AB300A05F4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		20BB185429B68AB300A05F4B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		20BB185729B68AB300A05F4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		20BB185929B68AB400A05F4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		20BB185C29B68AB400A05F4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		20BB185E29B68AB400A05F4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		20BB186429B68AE000A05F4B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +37,7 @@
 		20BB184429B68AB300A05F4B = {
 			isa = PBXGroup;
 			children = (
+				20BB186429B68AE000A05F4B /* README.md */,
 				20BB184F29B68AB300A05F4B /* MeLi-Clone */,
 				20BB184E29B68AB300A05F4B /* Products */,
 			);
@@ -57,14 +55,20 @@
 			isa = PBXGroup;
 			children = (
 				20BB185029B68AB300A05F4B /* AppDelegate.swift */,
-				20BB185229B68AB300A05F4B /* SceneDelegate.swift */,
 				20BB185429B68AB300A05F4B /* ViewController.swift */,
-				20BB185629B68AB300A05F4B /* Main.storyboard */,
+				20BB186529B68B1B00A05F4B /* Files */,
+			);
+			path = "MeLi-Clone";
+			sourceTree = "<group>";
+		};
+		20BB186529B68B1B00A05F4B /* Files */ = {
+			isa = PBXGroup;
+			children = (
 				20BB185929B68AB400A05F4B /* Assets.xcassets */,
 				20BB185B29B68AB400A05F4B /* LaunchScreen.storyboard */,
 				20BB185E29B68AB400A05F4B /* Info.plist */,
 			);
-			path = "MeLi-Clone";
+			name = Files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +131,6 @@
 			files = (
 				20BB185D29B68AB400A05F4B /* LaunchScreen.storyboard in Resources */,
 				20BB185A29B68AB400A05F4B /* Assets.xcassets in Resources */,
-				20BB185829B68AB300A05F4B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,21 +143,12 @@
 			files = (
 				20BB185529B68AB300A05F4B /* ViewController.swift in Sources */,
 				20BB185129B68AB300A05F4B /* AppDelegate.swift in Sources */,
-				20BB185329B68AB300A05F4B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		20BB185629B68AB300A05F4B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				20BB185729B68AB300A05F4B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		20BB185B29B68AB400A05F4B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +286,6 @@
 				INFOPLIST_FILE = "MeLi-Clone/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +313,6 @@
 				INFOPLIST_FILE = "MeLi-Clone/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
