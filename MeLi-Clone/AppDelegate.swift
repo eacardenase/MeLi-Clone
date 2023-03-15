@@ -7,12 +7,15 @@
 
 import UIKit
 
+let appColor: UIColor = .systemBlue
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
     let mainViewController = MainViewController()
+    let onboardingViewController = OnboardingViewController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -20,7 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
         
-        displayLogin()
+        onboardingViewController.delegate = self
+        
+        displayNextScreen()
         
         return true
     }
@@ -47,6 +52,23 @@ extension AppDelegate {
     }
     
     private func displayLogin() {
+        setRootViewController(mainViewController)
+    }
+    
+    private func displayNextScreen() {
+        if LocalState.hasOnboarded {
+            setRootViewController(mainViewController)
+        } else {
+            setRootViewController(onboardingViewController)
+        }
+    }
+}
+
+// MARK: - OnboardingViewControllerDelegate
+extension AppDelegate: OnboardingViewControllerDelegate {
+    func didFinishOnboarding() {
+        LocalState.hasOnboarded = true
+        
         setRootViewController(mainViewController)
     }
 }

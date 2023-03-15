@@ -58,7 +58,7 @@ class ViewController1: UIViewController {
 
 class ViewController2: UIViewController {
     override func viewDidLoad() {
-        view.backgroundColor = .systemBlue
+        view.backgroundColor = .systemOrange
     }
 }
 
