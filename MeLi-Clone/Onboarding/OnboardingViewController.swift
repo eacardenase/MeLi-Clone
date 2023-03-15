@@ -18,13 +18,14 @@ class OnboardingViewController: UIViewController {
     let titleLabel = UILabel()
     let subtitleLabel = UILabel()
     let signInButton = UIButton(type: .custom)
-    let loginButtin = UIButton(type: .custom)
+    let loginButton = UIButton(type: .custom)
     
     weak var delegate: OnboardingViewControllerDelegate?
     
     override func viewDidLoad() {
         view.backgroundColor = .systemBackground
         
+        setupBackButton()
         style()
         layout()
     }
@@ -66,9 +67,10 @@ extension OnboardingViewController {
         signInButton.setTitle("Registrarme", for: [])
         signInButton.configuration = UIButton.Configuration.filled()
         
-        loginButtin.translatesAutoresizingMaskIntoConstraints = false
-        loginButtin.setTitle("Ya tengo cuenta", for: [])
-        loginButtin.configuration = UIButton.Configuration.plain()
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.setTitle("Ya tengo cuenta", for: [])
+        loginButton.configuration = UIButton.Configuration.plain()
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .primaryActionTriggered)
         
     }
     
@@ -78,7 +80,7 @@ extension OnboardingViewController {
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(subtitleLabel)
         stackView.addArrangedSubview(signInButton)
-        stackView.addArrangedSubview(loginButtin)
+        stackView.addArrangedSubview(loginButton)
         
         view.addSubview(stackView)
         
@@ -94,11 +96,26 @@ extension OnboardingViewController {
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
+    
+    func setupBackButton() {
+        let backButtonImage = UIImage(systemName: "arrow.backward")
+        
+        navigationController?.navigationBar.backIndicatorImage = backButtonImage
+        navigationController?.navigationBar.tintColor = .label
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItem.Style.plain, target: nil, action: nil)
+    }
 }
 
 // MARK: - Actions
 extension OnboardingViewController {
     @objc func closeTapped() {
         delegate?.didFinishOnboarding()
+    }
+    
+    @objc func loginButtonTapped() {
+        let loginViewController = LoginViewController()
+        navigationController?.pushViewController(loginViewController, animated: true)
     }
 }

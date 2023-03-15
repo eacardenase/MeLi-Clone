@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let mainViewController = MainViewController()
     let onboardingViewController = OnboardingViewController()
+    var onboardingNavigationController: OnboardingNavigationController! = nil
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -24,8 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .systemBackground
         
         onboardingViewController.delegate = self
+        onboardingNavigationController = OnboardingNavigationController(rootViewController: onboardingViewController)
         
-        displayNextScreen()
+        displayLogin()
         
         return true
     }
@@ -52,7 +54,7 @@ extension AppDelegate {
     }
     
     private func displayLogin() {
-        setRootViewController(mainViewController)
+        setRootViewController(onboardingNavigationController)
     }
     
     private func displayNextScreen() {
