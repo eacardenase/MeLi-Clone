@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
     let label = UILabel()
     let textField = UITextField()
     let continueButton = UIButton()
+    let helpButton = UIButton()
     
     override func viewDidLoad() {
         
@@ -32,18 +33,23 @@ extension LoginViewController {
         textField.placeholder = "   Teléfono, e-mail o usuario"
         textField.layer.borderWidth = 0.5
         textField.layer.borderColor = UIColor.secondaryLabel.cgColor
-        textField.layer.cornerRadius = 8
+        textField.layer.cornerRadius = 7
         
         continueButton.translatesAutoresizingMaskIntoConstraints = false
         continueButton.setTitle("Continuar", for: .normal)
         continueButton.configuration = .filled()
 //        continueButton.addTarget(<#T##target: Any?##Any?#>, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
+        
+        helpButton.translatesAutoresizingMaskIntoConstraints = false
+        helpButton.setTitle("Necesito ayuda para ingresar", for: .normal)
+        helpButton.configuration = .plain()
     }
     
     func layout() {
         view.addSubview(label)
         view.addSubview(textField)
         view.addSubview(continueButton)
+        view.addSubview(helpButton)
         
         // label
         NSLayoutConstraint.activate([
@@ -66,6 +72,13 @@ extension LoginViewController {
             continueButton.leadingAnchor.constraint(equalTo: label.leadingAnchor),
             continueButton.trailingAnchor.constraint(equalTo: label.trailingAnchor),
             continueButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
+        // helpButton
+        NSLayoutConstraint.activate([
+            helpButton.topAnchor.constraint(equalToSystemSpacingBelow: continueButton.bottomAnchor, multiplier: 5),
+            helpButton.leadingAnchor.constraint(equalTo: label.leadingAnchor),
+            helpButton.trailingAnchor.constraint(equalTo: label.trailingAnchor)
         ])
     }
 }

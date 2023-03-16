@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         onboardingViewController.delegate = self
         onboardingNavigationController = OnboardingNavigationController(rootViewController: onboardingViewController)
         
-        displayLogin()
+        displayNextScreen()
         
         return true
     }
