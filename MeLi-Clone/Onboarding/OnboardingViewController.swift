@@ -75,6 +75,9 @@ extension OnboardingViewController {
     }
     
     private func layout() {
+        
+        view.backgroundColor = .white
+        
         view.addSubview(closeButton)
 
         stackView.addArrangedSubview(titleLabel)

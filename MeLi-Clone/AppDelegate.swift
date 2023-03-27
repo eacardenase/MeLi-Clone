@@ -54,9 +54,9 @@ extension AppDelegate {
         )
     }
     
-//    private func displayLogin() {
-//        setRootViewController(onboardingNavigationController)
-//    }
+    private func displayLogin() {
+        setRootViewController(onboardingNavigationController)
+    }
     
     private func prepView(_ controller: UIViewController) {
         controller.setStatusBar()
