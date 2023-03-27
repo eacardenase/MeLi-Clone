@@ -12,25 +12,8 @@ class LoginViewController: UIViewController {
     let loginView = LoginView()
     
     override func viewDidLoad() {
-
-        let navBarAppearance = UINavigationBarAppearance()
-        
-        navBarAppearance.configureWithTransparentBackground()
-        navBarAppearance.backgroundColor = .red
-        
-        print(navigationController!.navigationBar)
-        
-        UINavigationBar.appearance().standardAppearance = navBarAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
-        UINavigationBar.appearance().compactScrollEdgeAppearance = navBarAppearance
-        UINavigationBar.appearance().compactAppearance = navBarAppearance
-        
         style()
         layout()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        setStatusBar()
     }
 }
 
@@ -52,11 +35,3 @@ extension LoginViewController {
         ])
     }
 }
-
-// MARK: - Actions
-extension LoginViewController {
-    @objc func backButtonTapped() {
-        print("Back button tapped")
-    }
-}
-
