@@ -45,7 +45,7 @@ extension MainViewController {
     }
     
     private func setupTabBar() {
-        tabBar.tintColor = appColor
+        tabBar.tintColor = .systemBlue
         tabBar.isTranslucent = false
     }
 }

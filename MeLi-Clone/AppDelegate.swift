@@ -7,7 +7,7 @@
 
 import UIKit
 
-let appColor: UIColor = .systemBlue
+let appColor: UIColor = .yellow
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let mainViewController = MainViewController()
     let onboardingViewController = OnboardingViewController()
-    var onboardingNavigationController: OnboardingNavigationController! = nil
+    var onboardingNavigationController: OnboardingNavigationController!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -35,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate {
+    
     func setRootViewController(_ vc: UIViewController, animated: Bool = true) {
         guard animated, let window = self.window else {
             self.window?.rootViewController = vc
@@ -53,15 +54,24 @@ extension AppDelegate {
         )
     }
     
-    private func displayLogin() {
-        setRootViewController(onboardingNavigationController)
+//    private func displayLogin() {
+//        setRootViewController(onboardingNavigationController)
+//    }
+    
+    private func prepView(_ controller: UIViewController) {
+        controller.setStatusBar()
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().backgroundColor = appColor
     }
     
     private func displayNextScreen() {
+        
         if LocalState.hasOnboarded {
+            prepView(mainViewController)
+            
             setRootViewController(mainViewController)
         } else {
-            setRootViewController(onboardingViewController)
+            setRootViewController(onboardingNavigationController)
         }
     }
 }
@@ -71,6 +81,7 @@ extension AppDelegate: OnboardingViewControllerDelegate {
     func didFinishOnboarding() {
         LocalState.hasOnboarded = true
         
+        prepView(mainViewController)
         setRootViewController(mainViewController)
     }
 }

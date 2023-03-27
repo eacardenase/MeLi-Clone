@@ -23,8 +23,8 @@ class OnboardingViewController: UIViewController {
     weak var delegate: OnboardingViewControllerDelegate?
     
     override func viewDidLoad() {
-        view.backgroundColor = .systemBackground
         
+        setStatusBar()
         setupBackButton()
         style()
         layout()
@@ -86,7 +86,7 @@ extension OnboardingViewController {
         
         // closeButton
         NSLayoutConstraint.activate([
-            closeButton.topAnchor.constraint(equalToSystemSpacingBelow: view.topAnchor, multiplier: 10),
+            closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
             closeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
@@ -116,6 +116,9 @@ extension OnboardingViewController {
     
     @objc func loginButtonTapped() {
         let loginViewController = LoginViewController()
+        
+        loginViewController.setStatusBar()
+        
         navigationController?.pushViewController(loginViewController, animated: true)
     }
 }

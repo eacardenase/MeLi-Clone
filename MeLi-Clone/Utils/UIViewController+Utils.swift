@@ -9,6 +9,7 @@ import UIKit
 
 extension UIViewController {
     func setStatusBar() {
+        
         let navBarAppearance = UINavigationBarAppearance()
         
         navBarAppearance.configureWithTransparentBackground()

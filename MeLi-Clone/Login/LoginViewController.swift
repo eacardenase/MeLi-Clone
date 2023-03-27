@@ -15,9 +15,25 @@ class LoginViewController: UIViewController {
     let helpButton = UIButton()
     
     override func viewDidLoad() {
+
+        let navBarAppearance = UINavigationBarAppearance()
+        
+        navBarAppearance.configureWithTransparentBackground()
+        navBarAppearance.backgroundColor = .red
+        
+        print(navigationController!.navigationBar)
+        
+        UINavigationBar.appearance().standardAppearance = navBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navBarAppearance
+        UINavigationBar.appearance().compactScrollEdgeAppearance = navBarAppearance
+        UINavigationBar.appearance().compactAppearance = navBarAppearance
         
         style()
         layout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setStatusBar()
     }
 }
 
@@ -30,10 +46,12 @@ extension LoginViewController {
         label.lineBreakMode = .byWordWrapping
         
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "   Teléfono, e-mail o usuario"
+        textField.placeholder = "Teléfono, e-mail o usuario"
         textField.layer.borderWidth = 0.5
         textField.layer.borderColor = UIColor.secondaryLabel.cgColor
         textField.layer.cornerRadius = 7
+        textField.setLeftPaddingPoints(16)
+        textField.setRightPaddingPoints(16)
         
         continueButton.translatesAutoresizingMaskIntoConstraints = false
         continueButton.setTitle("Continuar", for: .normal)
@@ -76,7 +94,7 @@ extension LoginViewController {
         
         // helpButton
         NSLayoutConstraint.activate([
-            helpButton.topAnchor.constraint(equalToSystemSpacingBelow: continueButton.bottomAnchor, multiplier: 5),
+            helpButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24),
             helpButton.leadingAnchor.constraint(equalTo: label.leadingAnchor),
             helpButton.trailingAnchor.constraint(equalTo: label.trailingAnchor)
         ])
@@ -86,7 +104,7 @@ extension LoginViewController {
 // MARK: - Actions
 extension LoginViewController {
     @objc func backButtonTapped() {
-        print("TEST")
+        print("Back button tapped")
     }
 }
 
