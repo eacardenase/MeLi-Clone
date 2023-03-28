@@ -52,7 +52,6 @@ extension OnboardingViewController {
         titleLabel.attributedText = NSAttributedString(string: "¿Qué estás esperando?", attributes: [
             NSAttributedString.Key.foregroundColor: UIColor.secondaryLabel
         ])
-//        titleLabel.text = "¿Qué estás esperando?"
         
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         subtitleLabel.textAlignment = .center
@@ -119,8 +118,6 @@ extension OnboardingViewController {
     
     @objc func loginButtonTapped() {
         let loginViewController = LoginViewController()
-        
-        loginViewController.setStatusBar()
         
         navigationController?.pushViewController(loginViewController, animated: true)
     }
