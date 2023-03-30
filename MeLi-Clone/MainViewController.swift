@@ -19,27 +19,27 @@ class MainViewController: UITabBarController {
 
 extension MainViewController {
     private func setupViews() {
-        let firstVC = ViewController1()
+        let homewViewController = HomeViewController()
         let secondVC = ViewController2()
         let thirdVC = ViewController3()
         let fourthVC = ViewController4()
         let fifthVC = ViewController5()
         
-        firstVC.setTabBarImage(imageName: "house", title: "Inicio")
+        homewViewController.setTabBarImage(imageName: "house", title: "Inicio")
         secondVC.setTabBarImage(imageName: "heart", title: "Favoritos")
         thirdVC.setTabBarImage(imageName: "bag", title: "Mis Compras")
         fourthVC.setTabBarImage(imageName: "bell", title: "Notificaciones")
         fifthVC.setTabBarImage(imageName: "line.horizontal.3", title: "Mas")
         
-        let firstNC = UINavigationController(rootViewController: firstVC)
+        let homeNavigationController = UINavigationController(rootViewController: homewViewController)
         let secondNC = UINavigationController(rootViewController: secondVC)
         let thirdNC = UINavigationController(rootViewController: thirdVC)
         let fourthNC = UINavigationController(rootViewController: fourthVC)
         let fifthNC = UINavigationController(rootViewController: fifthVC)
         
-        firstNC.navigationBar.barTintColor = .systemCyan
+        homeNavigationController.navigationBar.barTintColor = .systemCyan
         
-        let tabBarList = [firstNC, secondNC, thirdNC, fourthNC, fifthNC]
+        let tabBarList = [homeNavigationController, secondNC, thirdNC, fourthNC, fifthNC]
         
         viewControllers = tabBarList
     }
@@ -47,12 +47,6 @@ extension MainViewController {
     private func setupTabBar() {
         tabBar.tintColor = .systemBlue
         tabBar.isTranslucent = false
-    }
-}
-
-class ViewController1: UIViewController {
-    override func viewDidLoad() {
-        view.backgroundColor = .systemCyan
     }
 }
 
